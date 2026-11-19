@@ -1,0 +1,3 @@
+html, body, #root { margin: 0; padding: 0; width: 100%; max-width: none; border: 0; text-align: left; display: block; }
+h1, h2, h3 { color: #10222B; }
+.dark h2, .dark h3 { color: #fff; }
