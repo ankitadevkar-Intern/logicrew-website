@@ -1,9 +1,10 @@
 .hero-visual{position:relative}
 .hero-art{width:100%;height:auto;display:block;border-radius:22px}
+.hero-illus{display:block;width:100%;height:auto;border-radius:22px;background:#D9EEED;animation:rise .8s ease both}
 .hero-visual .track{margin:-70px 0 0 14%;position:relative;padding:1.2rem 1.4rem}
 .truck{animation:drive 1.4s cubic-bezier(.2,.8,.2,1) both}
 @keyframes drive{from{transform:translateX(160px)}}
-.ico{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:#E3F1EF;color:var(--teal);margin-bottom:1rem}
+.ico{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--teal-tint);color:var(--teal);margin-bottom:1rem}
 .services article{border-top:0;transition:transform .2s,box-shadow .2s}
 .services article:hover{transform:translateY(-4px);box-shadow:0 14px 30px -18px rgba(16,34,43,.5)}
 .steps .ico{background:rgba(255,255,255,.16);color:#fff}
@@ -28,3 +29,35 @@
 .services{grid-template-columns:repeat(3,1fr)}
 @media(max-width:1000px){.services{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.services{grid-template-columns:1fr}}
+/* delivery map */
+.reach{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding-block:4rem}
+.reach .lead{max-width:30rem}
+.reach-key{list-style:none;padding:0;display:flex;gap:1.6rem;margin-top:1.8rem;font-size:.95rem}
+.reach-key li{display:flex;align-items:center;gap:.55rem}
+.key-hub{width:12px;height:12px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 2.5px var(--ink)}
+.key-route{width:26px;height:2px;background:var(--teal);border-radius:2px}
+.india-map{display:block;width:100%;height:auto;aspect-ratio:600/688;max-width:calc(min(78vh,620px) * 600 / 688);justify-self:center}
+.reach-group{margin-top:1.6rem}
+.reach-group h3{font-size:.8rem;font-family:inherit;font-weight:500;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:.6rem}
+.reach-states{list-style:none;padding:0;columns:3;column-gap:1.2rem;font-size:.92rem}
+.reach-states li{break-inside:avoid;padding:.18rem .5rem;margin-left:-.5rem;border-radius:6px;cursor:default;transition:background .15s,color .15s}
+.reach-states li.on{background:var(--teal-tint);color:var(--teal)}
+.india-map .borders path{fill:transparent;stroke:var(--ink);stroke-opacity:.3;stroke-width:.9;stroke-linejoin:round;transition:fill .15s}
+.india-map .borders path.on{fill:var(--teal);fill-opacity:.16;stroke:var(--teal);stroke-opacity:1;stroke-width:1.6}
+.india-map .routes{pointer-events:none}
+.india-map .dots{fill:none;stroke:var(--ink);stroke-width:4.6;stroke-linecap:round;opacity:.16}
+.route path{fill:none;stroke:var(--teal);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;animation:route-draw 7s ease-in-out infinite both paused}
+.route circle{fill:var(--teal);transform-box:fill-box;transform-origin:center;animation:route-end 7s ease-out infinite both paused}
+.hub circle{fill:var(--sun);stroke:var(--ink);stroke-width:2.5}
+.hub .halo{fill:var(--sun);stroke:none;opacity:.3;transform-box:fill-box;transform-origin:center;animation:halo 2.4s ease-out infinite paused}
+.india-map.live .route path,.india-map.live .route circle,.india-map.live .halo{animation-play-state:running}
+@keyframes route-draw{0%{stroke-dashoffset:1;opacity:0}1%{opacity:1}30%{stroke-dashoffset:0}80%{stroke-dashoffset:0;opacity:1}95%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes route-end{0%,28%{opacity:0;transform:scale(0)}34%{opacity:1;transform:scale(1.5)}40%,80%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}
+@keyframes halo{from{transform:scale(.5);opacity:.5}to{transform:scale(1.4);opacity:0}}
+@media(max-width:800px){
+ .reach{grid-template-columns:1fr;gap:0;padding-block:3.5rem}
+ .reach-copy{display:contents}
+ .reach-group{order:2}
+ .india-map{order:1;max-width:440px;margin:2rem auto .4rem}
+}
+@media(max-width:480px){.reach-states{columns:2}}

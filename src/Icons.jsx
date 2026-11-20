@@ -13,6 +13,14 @@ const P = {
   shirt: 'M8 3L3 7l3 3 2-1v12h8V9l2 1 3-3-5-4a4 4 0 01-8 0z',
   scan: 'M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3M4 12h16',
   plug: 'M9 3v5M15 3v5M6 8h12v3a6 6 0 01-12 0V8zM12 17v4',
+  check: 'M5 12.5l4.5 4.5L19 7.5',
+  menu: 'M4 7h16M4 12h16M4 17h16',
+  clock: 'M12 21a9 9 0 100-18 9 9 0 000 18zM12 7v5l3 2',
+  shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z',
+  plus: 'M12 5v14M5 12h14',
+  arrow: 'M5 12h14M13 6l6 6-6 6',
+  mail: 'M3 6h18v12H3zM3 7l9 6 9-6',
+  phone: 'M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z',
 }
 export default function Icon({ name, size = 26 }) {
   return (

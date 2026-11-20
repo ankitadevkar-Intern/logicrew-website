@@ -1,23 +1,11 @@
 import { Link } from 'react-router-dom'
 import Icon from './Icons'
 import HeroArt from './HeroArt'
-
-export const services = [
-  ['Warehousing', 'warehouse', 'Secure, climate-aware storage with real-time inventory visibility across all racks.'],
-  ['Order fulfilment', 'box', 'Pick, pack and ship from one place, with same-day dispatch on orders before cut-off.'],
-  ['Transportation', 'truck', 'Road, rail and air freight booked and tracked through a single partner.'],
-  ['Last-mile delivery', 'pin', 'Delivery slots, proof of delivery and customer notifications included.'],
-  ['Returns handling', 'returns', 'Inspect, restock or refurbish returned goods within 48 hours.'],
-  ['Inventory control', 'chart', 'Cycle counts, batch and expiry tracking, and weekly stock reports.'],
-]
-const steps = [
-  ['Send us your stock', 'warehouse', 'We receive, inspect and shelve your goods.'],
-  ['Orders sync in', 'plug', 'Connect your store or ERP. Orders reach the warehouse floor instantly.'],
-  ['We pick and pack', 'scan', 'Items are scanned at every step to avoid errors.'],
-  ['Delivered and tracked', 'pin', 'You and your customer follow the shipment until it arrives.'],
-]
-const stats = [['120+', 'Active clients'], ['4', 'Warehouses'], ['99.2%', 'On-time delivery'], ['18', 'States covered']]
-const industries = [['E-commerce','cart'],['Pharma','pill'],['Automotive','car'],['FMCG','bag'],['Electronics','chip'],['Apparel','shirt']]
+import heroDock800 from './assets/hero-dock-800.webp'
+import heroDock1400 from './assets/hero-dock-1400.webp'
+import DeliveryMap from './DeliveryMap'
+import { Faq, Testimonials } from './Blocks'
+import { industries, integrations, services, stats, steps } from './content'
 
 export default function Home() {
   return (
@@ -33,7 +21,16 @@ export default function Home() {
           </div>
 
           <div className="hero-visual">
-            <HeroArt />
+            <img
+              className="hero-illus"
+              src={heroDock1400}
+              srcSet={`${heroDock800} 800w, ${heroDock1400} 1400w`}
+              sizes="(max-width: 800px) 90vw, 45vw"
+              width="1400"
+              height="876"
+              alt="Warehouse team loading parcels into a delivery truck at the dock while a colleague scans a box"
+              fetchPriority="high"
+            />
             <div className="track" aria-label="Sample shipment tracker">
             <div className="track-head"><span>Shipment LC-20481</span><em>In transit</em></div>
             <ol>
@@ -50,11 +47,22 @@ export default function Home() {
           {stats.map(([n, l]) => (<div key={l}><strong>{n}</strong><span>{l}</span></div>))}
         </section>
 
+        <section id="coverage" className="section reach">
+          <DeliveryMap />
+        </section>
+
         <section id="services" className="section">
           <h2>Everything between your supplier and your customer</h2>
           <p className="lead">Use one service or the whole chain. Each can be added later.</p>
           <div className="services">
-            {services.map(([t, i, d]) => (<article key={t}><span className="ico"><Icon name={i} /></span><h3>{t}</h3><p>{d}</p></article>))}
+            {services.map((s) => (
+              <article key={s.id}>
+                <span className="ico"><Icon name={s.icon} /></span>
+                <h3>{s.title}</h3>
+                <p>{s.short}</p>
+                <Link to={`/services#${s.id}`} className="more">Learn more<Icon name="arrow" size={18} /></Link>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -63,6 +71,12 @@ export default function Home() {
           <ol className="steps">
             {steps.map(([t, i, d]) => (<li key={t}><span className="ico"><Icon name={i} /></span><h3>{t}</h3><p>{d}</p></li>))}
           </ol>
+        </section>
+
+        <section className="section integrations">
+          <h2>Works with the tools you already use</h2>
+          <p className="lead">Orders flow in from your store and stock levels flow back. No spreadsheets in between.</p>
+          <ul className="logos">{integrations.map((n) => <li key={n}>{n}</li>)}</ul>
         </section>
 
         <section className="banner">
@@ -79,11 +93,22 @@ export default function Home() {
 
         <section id="industries" className="section">
           <h2>Built for the way you ship</h2>
-          <div className="chips">{industries.map(([n, i]) => <span key={n}><Icon name={i} size={20} />{n}</span>)}</div>
-          <blockquote>
-            “Our returns dropped and deliveries got faster within the first month.”
-            <cite>Client name, Company (dummy testimonial)</cite>
-          </blockquote>
+          <p className="lead">Each industry ships differently. We set up storage, picking and delivery around yours.</p>
+          <div className="chips">{industries.map((i) => <span key={i.name}><Icon name={i.icon} size={20} />{i.name}</span>)}</div>
+          <Link to="/industries" className="more">See how we work with each industry<Icon name="arrow" size={18} /></Link>
+        </section>
+
+        <section className="section quotes-section">
+          <h2>What our clients say</h2>
+          <Testimonials />
+        </section>
+
+        <section id="faq" className="section faq-section">
+          <div>
+            <h2>Common questions</h2>
+            <p className="lead">Still unsure? <Link to="/contact"><u>Ask us directly</u></Link> and we'll reply within a working day.</p>
+          </div>
+          <Faq />
         </section>
 
         <section className="cta">

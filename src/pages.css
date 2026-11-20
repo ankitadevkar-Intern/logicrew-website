@@ -20,4 +20,131 @@
 .btn.sun{background:var(--sun);color:var(--ink)}
 .btn.sun:hover{background:#fff}
 @media(max-width:800px){.about{grid-template-columns:1fr}}
-.page-head + .section{padding-top:3rem}
+.page-head + .section,.jump + .section{padding-top:3rem}
+.illus{display:block;width:100%;height:auto;border-radius:22px;background:#D2EEED}
+.about .values{margin-top:2rem}
+.about .illus{max-width:460px;justify-self:end}
+.trackpage{display:grid;grid-template-columns:1fr minmax(0,440px);gap:4rem;align-items:start}
+.contact .illus{margin-top:2rem;max-width:380px}
+@media(max-width:800px){.about .illus{justify-self:start}.trackpage{grid-template-columns:1fr;gap:2.5rem}.trackpage .illus,.about .illus{max-width:420px}}
+
+/* shared */
+.tinted{background:var(--mist)}
+.more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-weight:500;color:var(--teal)}
+.more svg{transition:transform .2s}
+.more:hover svg{transform:translateX(3px)}
+.ticks{list-style:none;padding:0;display:grid;gap:.55rem}
+.ticks li{display:flex;gap:.6rem;align-items:flex-start}
+.ticks svg{flex:none;color:var(--teal);margin-top:.15rem}
+.fineprint{margin-top:1.5rem;font-size:.92rem;opacity:.7}
+.avatar{display:inline-grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;font:700 1rem 'Bricolage Grotesque',sans-serif}
+.avatar.large{width:64px;height:64px;font-size:1.3rem;background:var(--ink)}
+
+/* home */
+.services article{display:flex;flex-direction:column}
+.services article .more{margin-top:auto;padding-top:1rem}
+.logos{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.2rem}
+.logos li{background:#fff;border:1px solid var(--mist);border-radius:var(--r);padding:.8rem 1.4rem;font:700 1.05rem 'Bricolage Grotesque',sans-serif;opacity:.85}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem}
+.quotes figure{margin:0;background:#fff;border-radius:var(--r);padding:1.8rem;display:flex;flex-direction:column;gap:1.4rem;border-top:4px solid var(--sun)}
+.quotes blockquote{border:0;padding:0;font:500 1.15rem/1.45 'Bricolage Grotesque',sans-serif;max-width:none}
+.quotes figcaption{margin-top:auto;display:flex;gap:.8rem;align-items:center;font-size:.92rem}
+.quotes figcaption b{display:block;font-size:1rem}
+.quotes-section{background:var(--mist)}
+.faq-section{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start}
+.faq{display:grid;gap:.7rem}
+.faq details{background:#fff;border-radius:var(--r);padding:0 1.3rem}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 0;font-weight:500;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq-icon{display:grid;place-items:center;flex:none;color:var(--teal);transition:transform .2s}
+.faq details[open] .faq-icon{transform:rotate(45deg)}
+.faq details p{padding-bottom:1.2rem;opacity:.8;margin-top:-.2rem}
+
+/* services page */
+.jump{position:sticky;top:var(--nav-h);z-index:5;display:flex;gap:.5rem;overflow-x:auto;padding:.8rem 5vw;background:var(--paper);border-bottom:1px solid var(--mist);scrollbar-width:none}
+.jump a{flex:none;padding:.4rem .9rem;border-radius:99px;background:#fff;border:1px solid var(--mist);font-size:.92rem}
+.jump a:hover{border-color:var(--teal);color:var(--teal)}
+.service-list{display:grid;gap:1.2rem}
+.service-row{display:grid;grid-template-columns:auto 1.3fr 1fr;gap:2rem;background:#fff;border-radius:var(--r);padding:2rem;scroll-margin-top:60px}
+.service-row .ico{margin:0}
+.service-row h2{font-size:1.6rem;margin-bottom:.6rem}
+.service-row p{opacity:.85}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem;align-items:stretch}
+.plans article{position:relative;display:flex;flex-direction:column;gap:1rem;background:#fff;border:1.5px solid var(--mist);border-radius:16px;padding:2rem}
+.plans article.featured{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plans article.featured h3{color:#fff}
+.plans article.featured .ticks svg{color:var(--sun)}
+.plans .btn{margin-top:auto;text-align:center}
+.plans .featured .btn.sun:hover{background:#fff}
+.plan-tag{position:absolute;top:-12px;left:2rem;background:var(--sun);color:var(--ink);font-size:.8rem;font-weight:500;padding:.15rem .7rem;border-radius:99px}
+.plan-fit{opacity:.7;font-size:.95rem}
+.plan-price strong{font:800 2.4rem 'Bricolage Grotesque',sans-serif}
+.pricing-section{scroll-margin-top:60px}
+
+/* about */
+.timeline{list-style:none;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;margin-top:3rem;position:relative}
+.timeline::before{content:'';position:absolute;top:1.05rem;left:0;right:0;height:2px;background:rgba(255,255,255,.25)}
+.timeline li{position:relative;padding-top:3rem}
+.timeline .year{position:absolute;top:0;left:0;background:var(--sun);color:var(--ink);font:700 .95rem 'Bricolage Grotesque',sans-serif;padding:.3rem .8rem;border-radius:99px}
+.timeline h3{margin-bottom:.4rem}
+.timeline p{opacity:.85;font-size:.95rem}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem}
+.people article{background:#fff;border-radius:var(--r);padding:1.6rem}
+.people h3{margin-top:1rem}
+.people .role{color:var(--teal);font-weight:500;font-size:.92rem;margin:.2rem 0 .7rem}
+.people p:last-child{opacity:.8;font-size:.95rem}
+.hubs{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.5rem}
+.hubs article{background:#fff;border-radius:var(--r);padding:1.6rem}
+.hubs .ico{background:var(--teal-tint)}
+.hub-type{color:var(--teal);font-weight:500;font-size:.92rem;margin:.3rem 0 .6rem}
+.hubs address{font-style:normal;font-size:.95rem;opacity:.8}
+
+/* contact */
+.contact-lines{list-style:none;padding:0;display:grid;gap:.8rem;margin-top:1.2rem}
+.contact-lines li{display:flex;gap:.7rem;align-items:flex-start}
+.contact-lines svg{flex:none;color:var(--teal);margin-top:.2rem}
+.contact-lines b{display:block;font-weight:500}
+.contact-lines a:hover{color:var(--teal)}
+
+/* industries */
+.industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.industry-grid article{display:flex;flex-direction:column;background:#fff;border-radius:var(--r);padding:2rem}
+.industry-grid h2{font-size:1.5rem;margin-bottom:.6rem}
+.industry-grid p{opacity:.85}
+.metric{align-self:flex-start;margin-top:1.4rem;padding:.3rem .8rem;border-radius:99px;background:var(--teal-tint);color:var(--teal);font-weight:500;font-size:.9rem}
+
+/* careers */
+.perks{grid-template-columns:repeat(3,1fr);margin-top:2.5rem}
+.roles{list-style:none;padding:0;display:grid;gap:.8rem;margin-top:2.5rem}
+.roles li{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#fff;border-radius:var(--r);padding:1.3rem 1.6rem}
+.roles h3{font-size:1.2rem}
+.roles p{opacity:.7;font-size:.95rem;margin-top:.2rem}
+
+/* footer */
+footer{display:block;padding:4rem 5vw 2rem;border-top:1px solid rgba(255,255,255,.1)}
+.foot-cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem}
+footer h2{color:#fff;font:500 .8rem 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-bottom:1rem}
+footer ul{list-style:none;padding:0;display:grid;gap:.55rem;font-size:.95rem}
+footer ul a{opacity:.85}
+footer ul a:hover{opacity:1;color:var(--sun)}
+.foot-brand p,.foot-brand address{margin-top:1rem;max-width:22rem;font-style:normal;font-size:.95rem}
+.foot-brand address{opacity:.6}
+.foot-note{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12)}
+.cta h2{color:#fff}
+
+@media(max-width:1000px){
+ .quotes,.plans,.industry-grid{grid-template-columns:1fr 1fr}
+ .people,.hubs{grid-template-columns:1fr 1fr}
+ .timeline{grid-template-columns:1fr 1fr 1fr}
+ .timeline::before{display:none}
+ .foot-cols{grid-template-columns:1fr 1fr}
+}
+@media(max-width:800px){
+ .faq-section,.service-row{grid-template-columns:1fr}
+ .service-row{gap:1rem;padding:1.6rem}
+ .perks{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+ .quotes,.plans,.industry-grid,.people,.hubs,.timeline,.foot-cols{grid-template-columns:1fr}
+ .roles li{flex-direction:column;align-items:flex-start}
+}
