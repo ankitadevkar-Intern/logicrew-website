@@ -8,6 +8,7 @@ import { contact, hubs, services } from './content'
 import './App.css'
 import './visuals.css'
 import './pages.css'
+import ServicesMenu from './ServicesMenu'
 
 export default function App() {
   const [open, setOpen] = useState(false)
@@ -28,7 +29,7 @@ export default function App() {
         <button className="burger" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Menu"><Icon name="menu" size={26} /></button>
         <nav className={open ? 'open' : ''}>
   <NavLink to="/" end>Home</NavLink>
-  <NavLink to="/services">Services</NavLink>
+  <ServicesMenu />
   <NavLink to="/industries">Industries</NavLink>
   <NavLink to="/about">About</NavLink>
   <NavLink to="/track">Track shipment</NavLink>
