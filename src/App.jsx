@@ -3,6 +3,7 @@ import { Routes, Route, NavLink, Link, useLocation } from 'react-router-dom'
 import Logo from './Logo'
 import Icon from './Icons'
 import Home from './Home'
+import useScrollReveal from './useScrollReveal'
 import { Services, About, Track, Contact, Industries, Careers } from './Pages'
 import { contact, hubs, services } from './content'
 import './App.css'
@@ -13,6 +14,7 @@ import ServicesMenu from './ServicesMenu'
 export default function App() {
   const [open, setOpen] = useState(false)
   const { pathname, hash, key } = useLocation()
+  useScrollReveal()
   useEffect(() => {
     setOpen(false)
     let id = hash.slice(1)
