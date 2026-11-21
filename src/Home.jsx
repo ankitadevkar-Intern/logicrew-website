@@ -4,6 +4,7 @@ import HeroArt from './HeroArt'
 import heroDock800 from './assets/hero-dock-800.webp'
 import heroDock1400 from './assets/hero-dock-1400.webp'
 import DeliveryMap from './DeliveryMap'
+import Reveal from './Reveal'
 import { Faq, Testimonials } from './Blocks'
 import { industries, integrations, services, stats, steps } from './content'
 
@@ -44,77 +45,89 @@ export default function Home() {
         </section>
 
         <section className="stats">
-          {stats.map(([n, l]) => (<div key={l}><strong>{n}</strong><span>{l}</span></div>))}
+          {stats.map(([n, l], i) => (<Reveal key={l} delay={i * 100}><strong>{n}</strong><span>{l}</span></Reveal>))}
         </section>
 
         <section id="coverage" className="section reach">
-          <DeliveryMap />
-        </section>
+  <DeliveryMap />
+</section>
 
         <section id="services" className="section">
-          <h2>Everything between your supplier and your customer</h2>
-          <p className="lead">Use one service or the whole chain. Each can be added later.</p>
+          <Reveal>
+            <h2>Everything between your supplier and your customer</h2>
+            <p className="lead">Use one service or the whole chain. Each can be added later.</p>
+          </Reveal>
           <div className="services">
-            {services.map((s) => (
-              <article key={s.id}>
+            {services.map((s, i) => (
+              <Reveal as="article" key={s.id} delay={(i % 3) * 120}>
                 <span className="ico"><Icon name={s.icon} /></span>
                 <h3>{s.title}</h3>
                 <p>{s.short}</p>
                 <Link to={`/services#${s.id}`} className="more">Learn more<Icon name="arrow" size={18} /></Link>
-              </article>
+              </Reveal>
             ))}
           </div>
         </section>
 
         <section id="process" className="section dark">
-          <h2>How it works</h2>
+          <Reveal><h2>How it works</h2></Reveal>
           <ol className="steps">
-            {steps.map(([t, i, d]) => (<li key={t}><span className="ico"><Icon name={i} /></span><h3>{t}</h3><p>{d}</p></li>))}
+            {steps.map(([t, i, d], n) => (
+              <Reveal as="li" key={t} delay={n * 130}><span className="ico"><Icon name={i} /></span><h3>{t}</h3><p>{d}</p></Reveal>
+            ))}
           </ol>
         </section>
 
         <section className="section integrations">
-          <h2>Works with the tools you already use</h2>
-          <p className="lead">Orders flow in from your store and stock levels flow back. No spreadsheets in between.</p>
-          <ul className="logos">{integrations.map((n) => <li key={n}>{n}</li>)}</ul>
+          <Reveal>
+            <h2>Works with the tools you already use</h2>
+            <p className="lead">Orders flow in from your store and stock levels flow back. No spreadsheets in between.</p>
+          </Reveal>
+          <Reveal delay={150}><ul className="logos">{integrations.map((n) => <li key={n}>{n}</li>)}</ul></Reveal>
         </section>
 
         <section className="banner">
-          <div>
+          <Reveal>
             <h2>Why brands choose Logicrew</h2>
             <ul>
               <li><span className="ico"><Icon name="scan" /></span><div><b>Scanned at every step</b>Fewer errors and a full audit trail.</div></li>
               <li><span className="ico"><Icon name="plug" /></span><div><b>Connects to your store</b>Shopify, WooCommerce or your own ERP.</div></li>
               <li><span className="ico"><Icon name="truck" /></span><div><b>Same-day dispatch</b>Orders placed before cut-off leave today.</div></li>
             </ul>
-          </div>
-          <div className="grid-art"><HeroArt /></div>
+          </Reveal>
+          <Reveal className="grid-art" delay={150}><HeroArt /></Reveal>
         </section>
 
         <section id="industries" className="section">
-          <h2>Built for the way you ship</h2>
-          <p className="lead">Each industry ships differently. We set up storage, picking and delivery around yours.</p>
-          <div className="chips">{industries.map((i) => <span key={i.name}><Icon name={i.icon} size={20} />{i.name}</span>)}</div>
-          <Link to="/industries" className="more">See how we work with each industry<Icon name="arrow" size={18} /></Link>
+          <Reveal>
+            <h2>Built for the way you ship</h2>
+            <p className="lead">Each industry ships differently. We set up storage, picking and delivery around yours.</p>
+          </Reveal>
+          <Reveal delay={150}>
+            <div className="chips">{industries.map((i) => <span key={i.name}><Icon name={i.icon} size={20} />{i.name}</span>)}</div>
+            <Link to="/industries" className="more">See how we work with each industry<Icon name="arrow" size={18} /></Link>
+          </Reveal>
         </section>
 
         <section className="section quotes-section">
-          <h2>What our clients say</h2>
-          <Testimonials />
+          <Reveal><h2>What our clients say</h2></Reveal>
+          <Reveal delay={150}><Testimonials /></Reveal>
         </section>
 
         <section id="faq" className="section faq-section">
-          <div>
+          <Reveal>
             <h2>Common questions</h2>
             <p className="lead">Still unsure? <Link to="/contact"><u>Ask us directly</u></Link> and we'll reply within a working day.</p>
-          </div>
-          <Faq />
+          </Reveal>
+          <Reveal delay={150}><Faq /></Reveal>
         </section>
 
         <section className="cta">
-          <h2>Ready to move your stock?</h2>
-          <p>Tell us what you ship and we will send a plan and a price within one working day.</p>
-          <Link to="/contact" className="btn sun">Get a quote</Link>
+          <Reveal>
+            <h2>Ready to move your stock?</h2>
+            <p>Tell us what you ship and we will send a plan and a price within one working day.</p>
+            <Link to="/contact" className="btn sun">Get a quote</Link>
+          </Reveal>
         </section>
       </>
   )
